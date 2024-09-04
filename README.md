@@ -1,73 +1,46 @@
-# ⚡️astro-bento-portfolio
+# 🚀 Astro Bento Portfolio
 
 ## A personal portfolio website made using `Astro`.
 
 ![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
 
-To view a demo example, **[click here](https://sparkly-speculoos-0c9197.netlify.app/)**
+## TODOs
 
-or my portfolio **[click here](https://gianmarco.xyz/)**
+[ ] Metadata
+```html
+<meta property="og:title" content="Title">
+<meta property="og:description" content="Description">
+<meta property="og:image" content="Image URL">
+<meta property="og:url" content="URL of the page/article/post">
 
-## Features
-
-- Modern and Minimal bento-like, sleek UI Design
-- All in one page (almost)
-- Fully Responsive
-- Performances and SEO optimizations
-- Ready to be deployed on [Netlify](https://www.netlify.com/)
-- Blog
-- RSS support (your-domain/rss.xml)
-- Cool 3d globe
-
-## Tech Stack
-
-- [Astro](https://astro.build)
-- [unocss](https://unocss.dev/)
-- [motion](https://motion.dev/)
-- [d3](https://d3js.org/)
-
-# Steps ▶️
-
-```bash
-# Clone this repository
-$ git clone https://github.com/Ladvace/astro-bento-portfolio
+<meta name="twitter:title" content="Title">
+<meta name="twitter:description" content="Description">
+<meta name="twitter:image" content="Image URL">
+<meta name="twitter:card" content="summary_large_image"> <!-- how the card is displayed -->
 ```
+- [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/sharing/)
 
-```bash
-# Go into the repository
-$ cd astro-bento-portfolio
-```
+- [Twitter Card Validator](https://cards-dev.twitter.com/validator)
+[ ] Icons and Favicon
+[ ] Performance
 
-```bash
-# Install dependencies
-$ pnpm install
-or
-$ npm install
-```
+    Run some overall tests:
 
-```bash
-# Start the project in development
-$ pnpm run dev
-or
-$ npm run dev
-```
+    PageSpeed Insights
+    Web Page Performance Test
+
+    Optimize images with ImageOptim on Mac or Kraken.io Web Interface
+    Check loading times at GPRS or EDGE speed
+    Check accessibility at tiny screens
+    Check links and interactive elements for fat-fingers
+
+[ ] All images have alt text
+[ ] Remove unused CSS using [PurgeCSS](https://github.com/FullHuman/purgecss)
+
+
 
 ## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
 
 # Configuration
 
 remember to replace the `site` and other properties with your data in `astro.config.mjs`
-
-# Deploy on Netlify 🚀
-
-Deploying your website on Netlify it's optional but I reccomand it in order to deploy it faster and easly.
-
-You just need to fork this repo and linking it to your Netlify account.
-
-or
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Ladvace/astro-bento-portfolio)
-
-## Authors ❤️
-
-- Gianmarco - https://github.com/Ladvace
