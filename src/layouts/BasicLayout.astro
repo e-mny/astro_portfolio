@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   description: string;
-  page?: "travel" | "blog";
+  page?: "travel" | "projects";
   slug?: string | undefined;
   frontmatter?: {
     file: string;
@@ -10,8 +10,9 @@ interface Props {
   } & {
     title: string;
     description: string;
-    pubDate: string;
+    date: string;
     minutesRead: string;
+    image?: string;
   };
 }
 
@@ -22,7 +23,7 @@ const image =
     : `${Astro.url.origin}/og-image.png`;
 
 const schema =
-  page !== "blog"
+  page !== "projects"
     ? {
         "@context": "http://schema.org",
         "@type": "Person",
@@ -50,10 +51,10 @@ const schema =
       }
     : {
         "@context": "http://schema.org",
-        "@type": "BlogPosting",
+        "@type": "projectsPosting",
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://gianmarco.xyz/blog/${slug}`,
+          "@id": `https://gianmarco.xyz/projects/${slug}`,
         },
         headline: frontmatter?.title || title,
         description: frontmatter?.description || title,
@@ -75,8 +76,8 @@ const schema =
             url: "https://gianmarco.xyz/og-image.png",
           },
         },
-        datePublished: frontmatter?.pubDate || new Date().toISOString(),
-        dateModified: frontmatter?.pubDate || new Date().toISOString(),
+        datePublished: frontmatter?.date || new Date().toISOString(),
+        dateModified: frontmatter?.date || new Date().toISOString(),
       };
 ---
 
@@ -112,50 +113,9 @@ const schema =
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body
-    class="bg-darkslate-700 md:h-screen flex flex-col justify-center items-center"
+    class="bg-zinc-900 md:h-screen flex flex-col justify-center items-center ease-in"
   >
     <slot name="loader" />
     <slot />
   </body>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: "CabinetGrotesk";
-    src: url("/fonts/CabinetGrotesk-Variable.ttf") format("truetype-variations");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 1000;
-  }
-  @font-face {
-    font-family: "Satoshi";
-    src: url("/fonts/Satoshi-Variable.ttf") format("truetype-variations");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 1000;
-  }
-
-  body {
-    margin: 0;
-    font-family: "Satoshi", sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Cabinet Grotesk", sans-serif;
-  }
-  p {
-    font-family: "Satoshi";
-  }
-
-  b {
-    font-weight: 700 !important;
-  }
-</style>

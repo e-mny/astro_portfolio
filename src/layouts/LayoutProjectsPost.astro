@@ -1,0 +1,44 @@
+---
+import { formatDate } from "../lib/helpers";
+import type { MarkdownLayoutProps } from "astro";
+import BasicLayout from "./BasicLayout.astro";
+import { Image } from "astro:assets";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+  date: string;
+  minutesRead: string;
+  image?: string;
+}>;
+
+const { slug } = Astro.params;
+const { frontmatter } = Astro.props;
+---
+
+<BasicLayout
+  frontmatter={frontmatter}
+  slug={slug}
+  page="projects"
+  title={`${frontmatter.title} | Enoch Mok`}
+  description={frontmatter.description}
+>
+  <main class="mx-auto max-w-3xl w-full h-screen p-8 text-neutral-100">
+    <a
+      href="/projects"
+      class="text-white bg-zinc-900 hover:bg-zinc-800 px-4 py-2 border-1 border-solid border-zinc-600 rounded-lg mb-8"
+      >Back</a
+    >
+    <div class="my-10">
+      <h1 class="text-5xl font-poppins">{frontmatter.title}</h1>
+      <Image src={frontmatter.image} alt="Test" width="800" height="100" class="rounded-3xl shadow-2xl"/>
+      <div class="flex justify-between pt-4 text-zinc-500 text-sm">
+        <p>{formatDate(new Date(frontmatter.date))}</p>
+        <p>{frontmatter.minutesRead}</p>
+      </div>
+    </div>
+    <article class="prose prose-zinc prose-invert">
+      <slot />
+    </article>
+  </main>
+</BasicLayout>
