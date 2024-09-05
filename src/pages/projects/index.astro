@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import PostRow from "../../components/Projects/PostRow.astro";
+import ProjectRow from "../../components/Projects/ProjectRow.astro";
 
-const posts = (await getCollection("projects"))?.sort(
+const projects = (await getCollection("projects"))?.sort(
   (projectsEntryA, projectsEntryB) =>
-    (projectsEntryB.data.pubDate || new Date()).getTime() -
-    (projectsEntryA.data.pubDate || new Date()).getTime()
+    (new Date(projectsEntryB.data.date) || new Date()).getTime() -
+    (new Date(projectsEntryA.data.date) || new Date()).getTime()
 );
 ---
 
@@ -20,7 +20,7 @@ const posts = (await getCollection("projects"))?.sort(
 </script>
 
 <Layout
-  title="Gianmarco Cavallo - projects"
+  title="Projects | Enoch Mok"
   description="Software developer with strong focus on the user experience animations and micro interactions"
 >
   <main
@@ -31,14 +31,14 @@ const posts = (await getCollection("projects"))?.sort(
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
       >Back</a
     >
-    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Posts</h1>
+    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Projects</h1>
     <ul class="w-full">
       {
-        posts?.map((post) => (
-          <PostRow
-            title={post.data.title || "No title"}
-            date={post.data.pubDate || new Date()}
-            url={post.slug}
+        projects?.map((project) => (
+          <ProjectRow
+            title={project.data.title || "No title"}
+            date={new Date(project.data.date) || new Date()}
+            url={project.slug}
           />
         ))
       }

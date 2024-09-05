@@ -24,3 +24,5 @@ pnpm-debug.log*
 
 # zip files (for fonts)
 .zip
+
+inspiration/

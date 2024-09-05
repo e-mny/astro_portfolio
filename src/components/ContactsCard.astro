@@ -3,18 +3,13 @@ import Card from "./Card/index.astro";
 import { LINKS } from "../lib/constants";
 ---
 
-<Card colSpan="md:col-span-1" rowSpan="md:row-span-4">
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-4" title="Let's work together">
   <div class="h-full">
-    <header class="flex items-center">
-      <div class="text-white text-xl font-bold">
-        Let's start working together!
-      </div>
-    </header>
-    <address class="flex flex-col mt-4">
+    <address class="flex flex-col">
       <div class="text-gray-500">Contact Details</div>
       <p>{LINKS.email}</p>
     </address>
-    <div class="flex flex-col mt-4 w-fit">
+    <div class="flex flex-col  w-fit">
       <div class="text-gray-500">Socials</div>
       <ul>
         <li>

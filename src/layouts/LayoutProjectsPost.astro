@@ -31,7 +31,7 @@ const { frontmatter } = Astro.props;
     >
     <div class="my-10">
       <h1 class="text-5xl font-poppins">{frontmatter.title}</h1>
-      <Image src={frontmatter.image} alt="Test" width="800" height="100" class="rounded-3xl shadow-2xl"/>
+      <Image src={frontmatter.image} alt={"Image of ".concat(frontmatter.title)} width="800" height="100" class="rounded-3xl shadow-2xl"/>
       <div class="flex justify-between pt-4 text-zinc-500 text-sm">
         <p>{formatDate(new Date(frontmatter.date))}</p>
         <p>{frontmatter.minutesRead}</p>

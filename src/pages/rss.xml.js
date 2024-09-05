@@ -12,7 +12,7 @@ export async function GET(context) {
     site: context.site,
     items: projects.map((post) => ({
       title: post.data.title,
-      pubDate: post.data.pubDate,
+      date: post.data.date,
       description: post.data.description,
       content: sanitizeHtml(parser.render(post.body)),
       // Compute RSS link from post `slug`

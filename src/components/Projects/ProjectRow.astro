@@ -1,8 +1,11 @@
 ---
 import { formatDate } from "../../lib/helpers";
 
-const { title, date, url, frontmatter } = Astro.props;
+const { title, date, url } = Astro.props;
 ---
+
+<!-- TODO
+ To add design like in inspiration/projects_inspiration.jpg -->
 
 <li class="w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-2">
   <a
@@ -13,8 +16,6 @@ const { title, date, url, frontmatter } = Astro.props;
       {title}
     </p>
 
-    <!-- TODO: 
-    Change the dates displayed - right now it is showing the current date, but it should be showing the project's respective dates -->
     <time
       class="text-right tabular-nums font-notosans"
       datetime={date.toISOString()}

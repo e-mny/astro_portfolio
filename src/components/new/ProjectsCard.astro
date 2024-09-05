@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+import Card from "../Card/index.astro";
+---
+
+<Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-5 lg:row-span-4 gap-4">
+  <div>
+  <div class="flex justify-between">
+
+    <h1 class="text-xl">Projects</h1>
+    <a href="/projects" class="h-full w-full inline-block border-white border-spacing-52">
+        <Icon name="material-symbols:keyboard-double-arrow-right-rounded"
+        class="h-6 float-right hover:text-primary-500 hover:translate-x-1 hover:-translate-y-1 transition-transform ease-in-out duration-100 border-white border-spacing-52"
+        />
+      </a>
+    </div>
+    <div>
+      Scrollable list of projects
+
+    </div>
+  </div>
+</Card>
