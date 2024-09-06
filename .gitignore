@@ -9,6 +9,8 @@ node_modules/
 
 .vscode/
 .vercel/
+.vscode/
+inspiration/
 
 # logs
 npm-debug.log*
@@ -24,5 +26,3 @@ pnpm-debug.log*
 
 # zip files (for fonts)
 .zip
-
-inspiration/
