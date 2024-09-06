@@ -11,11 +11,6 @@ import svelte from "@astrojs/svelte";
 
 import tailwind from "@astrojs/tailwind";
 
-// Environment Loading
-import { loadEnv } from "vite";
-const { JAWG_ACCESS_TOKEN } = loadEnv(import.meta.env.MODE, process.cwd(), "");
-console.log(JAWG_ACCESS_TOKEN)
-
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +20,12 @@ export default defineConfig({
       "https://gianmarco.xyz/sitemap-index.xml",
       "https://gianmarco.xyz/sitemap-0.xml",
     ],
-  }), solidJs(), icon(), svelte(), tailwind()],
+  }), 
+  solidJs(), 
+  icon(), 
+  svelte(), 
+  tailwind()
+],
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },

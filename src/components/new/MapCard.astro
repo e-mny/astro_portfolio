@@ -6,18 +6,35 @@ import Card from "../Card/index.astro";
   import L from 'leaflet'
   import 'leaflet/dist/leaflet.css';
 
-  const accessToken = import.meta.env
-  console.log(accessToken)
-  var SGMap = L.map('mapID').setView([1.35, 103.82], 13);
-  var Jawg_Streets = L.tileLayer(`https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${accessToken}`, {
-	attribution: '<a href="https://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(SGMap);
-// var mymap = L.map('mapID').setView([40.71309999999994, -74.00569999999914], 12);
-//         L.tileLayer('https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=c3XCb2KcYAQDS5Bl4YyebxaovrVQ4NDDM7QRVUaTPHlWnXfzmOcawYTKF1Mjkcdl', {}).addTo(mymap);
-//         mymap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors")
+  const innerWidth = screen.width;
+  console.log(innerWidth)
+
+  // if innerWidth > lg-width (1024px)
+  // use zoom 9
+  // else
+  // use zoom 11
+
+  var SGMap = L.map('mapID', {
+    zoomControl: false,
+    zoomSnap: 0.5,
+  }).setView([1.33, 103.82]);
+  if (innerWidth >= 1024){
+    SGMap.setZoom(10).setMinZoom(10)
+  }
+  else{
+    SGMap.setZoom(11).setMinZoom(11)
+  }
+  L.tileLayer('https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=c3XCb2KcYAQDS5Bl4YyebxaovrVQ4NDDM7QRVUaTPHlWnXfzmOcawYTKF1Mjkcdl', {}).addTo(SGMap);
+  SGMap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>")
+
+  // Creating Avatar
+  // TODO: To change avatar icon and popup text
+  var avatarIcon = L.icon({
+    iconUrl: 'me.webp',
+    iconSize:     [50, 50], // size of the icon
+});
+  L.marker([1.4382, 103.7890], {icon: avatarIcon}).addTo(SGMap).bindPopup("Hello!");;
+
 </script>
 
-<!-- <Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-2 lg:row-span-2"> -->
-  <div id="mapID" class="w-full h-full m-0 p-0 sm:col-span-2 lg:col-span-1 sm:row-span-2 lg:row-span-2">
-  </div>
-<!-- </Card> -->
+<div id="mapID" class="card w-full sm:min-h-[400px] lg:min-h-0 group lg:overflow-y-auto transform-y-[-40%] bg-darkslate-500 shadow-lg rounded-lg border border-darkslate-100 hover:border-primary-500 align-start flex-none justify-start transform perspective-1200 transition duration-75 ease-in-out col-span-1 m-0 p-0 sm:col-span-2 lg:col-span-1 sm:row-span-1 md:row-span-4 lg:row-span-2" title="Map of Singapore"/>
