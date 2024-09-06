@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import Content from "./Content.astro";
+import clsx from 'clsx'
 
 interface Props {
   title?: string;
@@ -11,17 +12,18 @@ interface Props {
   colorText?: string;
   height?: string;
   width?: string;
+  addClass?: string;
 }
 
-const { title, body, colSpan, rowSpan, href, colorText, height } = Astro.props;
+const { title, body, colSpan, rowSpan, href, colorText, height, width, addClass } = Astro.props;
 ---
 
 <div
-  class={`card h-max sm:h-auto group lg:overflow-y-auto transform-y-[-40%] bg-darkslate-500 shadow-lg rounded-lg p-6 border border-darkslate-100 hover:border-primary-500 align-start flex-none ${
+  class={clsx(`card h-max sm:h-auto group lg:overflow-y-auto transform-y-[-40%] bg-darkslate-500 shadow-lg rounded-lg p-6 border border-darkslate-100 hover:border-primary-500 align-start flex-none ${
     height || "h-full"
   } justify-start relative transform perspective-1200 w-full transition duration-75 ease-in-out col-span-1 ${
     colSpan || "md:col-span-2"
-  } ${rowSpan || ""}`}
+  } ${rowSpan || ""}`, addClass)}
 >
   {
     href ? (

@@ -2,8 +2,22 @@
 import Card from "../Card/index.astro";
 ---
 
-<Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-2 lg:row-span-2" title="Map">
-  <div>
-    Insert Map Here
+<script >
+  import L from 'leaflet'
+  import 'leaflet/dist/leaflet.css';
+
+  const accessToken = import.meta.env
+  console.log(accessToken)
+  var SGMap = L.map('mapID').setView([1.35, 103.82], 13);
+  var Jawg_Streets = L.tileLayer(`https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${accessToken}`, {
+	attribution: '<a href="https://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(SGMap);
+// var mymap = L.map('mapID').setView([40.71309999999994, -74.00569999999914], 12);
+//         L.tileLayer('https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=c3XCb2KcYAQDS5Bl4YyebxaovrVQ4NDDM7QRVUaTPHlWnXfzmOcawYTKF1Mjkcdl', {}).addTo(mymap);
+//         mymap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors")
+</script>
+
+<!-- <Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-2 lg:row-span-2"> -->
+  <div id="mapID" class="w-full h-full m-0 p-0 sm:col-span-2 lg:col-span-1 sm:row-span-2 lg:row-span-2">
   </div>
-</Card>
+<!-- </Card> -->
