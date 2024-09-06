@@ -2,12 +2,12 @@
 import Card from "../Card/index.astro";
 ---
 
-<script >
+<script>
   import L from 'leaflet'
   import 'leaflet/dist/leaflet.css';
+  const ACCESS_TOKEN = import.meta.env.PUBLIC_JAWG_ACCESS_TOKEN
 
   const innerWidth = screen.width;
-  console.log(innerWidth)
 
   // if innerWidth > lg-width (1024px)
   // use zoom 9
@@ -24,7 +24,7 @@ import Card from "../Card/index.astro";
   else{
     SGMap.setZoom(11).setMinZoom(11)
   }
-  L.tileLayer('https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=c3XCb2KcYAQDS5Bl4YyebxaovrVQ4NDDM7QRVUaTPHlWnXfzmOcawYTKF1Mjkcdl', {}).addTo(SGMap);
+  L.tileLayer(`https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`, {}).addTo(SGMap);
   SGMap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>")
 
   // Creating Avatar
