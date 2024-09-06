@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify";
 import robotsTxt from "astro-robots-txt";
+import vercel from "@astrojs/vercel/serverless";
 import icon from "astro-icon";
 
 import solidJs from "@astrojs/solid-js";
@@ -10,6 +10,12 @@ import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 import svelte from "@astrojs/svelte";
 
 import tailwind from "@astrojs/tailwind";
+
+// Environment Loading
+import { loadEnv } from "vite";
+const { JAWG_ACCESS_TOKEN } = loadEnv(import.meta.env.MODE, process.cwd(), "");
+console.log(JAWG_ACCESS_TOKEN)
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,7 +30,10 @@ export default defineConfig({
     remarkPlugins: [remarkReadingTime],
   },
   output: "server",
-  adapter: netlify({ edgeMiddleware: true }),
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },}),
   vite: {
     assetsInclude: "**/*.riv",
   },
