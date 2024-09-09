@@ -26,10 +26,12 @@ export function ScrollAreaDemo({ addClass }: ScrollAreaDemoProps) {
             <Separator className="my-2" />
           </React.Fragment>
         ))} */}
-        {allProjTitles.map((title) => (
+        {allProjTitles.map((title, index) => (
           <React.Fragment key={title}>
             <div className="text-base">{title}</div>
-            <Separator className="my-2" />
+            {(index < allProjTitles.length - 1) 
+            ? <Separator className="my-2" /> : ""}
+            
           </React.Fragment>
         ))}
       </div>
