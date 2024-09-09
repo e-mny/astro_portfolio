@@ -2,6 +2,7 @@
 import { formatDate } from "../lib/helpers";
 import type { MarkdownLayoutProps } from "astro";
 import BasicLayout from "./BasicLayout.astro";
+import Layout from "./Layout.astro";
 import { Image } from "astro:assets";
 
 type Props = MarkdownLayoutProps<{
@@ -16,14 +17,15 @@ const { slug } = Astro.params;
 const { frontmatter } = Astro.props;
 ---
 
+<!-- TODO: Change BasicLayout to Layout so as to get loading animation (would it be too much animation?) -->
+
 <BasicLayout
   frontmatter={frontmatter}
   slug={slug}
-  page="projects"
   title={`${frontmatter.title} | Enoch Mok`}
   description={frontmatter.description}
 >
-  <main class="mx-auto max-w-3xl w-full max-h-screen pb-60 p-8 text-neutral-100 relative flex flex-col justify-start items-start prose prose-headings:font-poppins font-notosans prose-invert">
+  <main class="w-full h-full relative flex flex-col justify-start items-start max-w-3xl mx-auto p-8 prose prose-headings:font-poppins font-notosans prose-invert">
     <a
       href="/projects"
       class="text-white bg-zinc-900 hover:bg-zinc-800 px-4 py-2 border-1 border-solid border-zinc-600 rounded-lg mb-8"
