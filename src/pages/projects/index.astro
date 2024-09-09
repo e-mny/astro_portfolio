@@ -24,14 +24,14 @@ const projects = (await getCollection("projects"))?.sort(
   description="Software developer with strong focus on the user experience animations and micro interactions"
 >
   <main
-    class="w-screen h-screen flex flex-col justify-start items-start max-w-3xl mx-auto p-8"
+    class="min-h-full text-white m-auto p-2 gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:gap-3 md:p-6 lg:h-screen lg:gap-4 lg:max-h-[800px] prose prose-headings:font-poppins font-notosans prose-invert"
   >
     <a
       href="/"
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
       >Back</a
     >
-    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Projects</h1>
+    <h1 class="text-2xl font-bold mb-4 text-neutral-100">Projects</h1>
     <ul class="w-full">
       {
         projects?.map((project) => (

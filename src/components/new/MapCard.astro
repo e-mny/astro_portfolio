@@ -7,17 +7,17 @@ import Card from "../Card/index.astro";
   import 'leaflet/dist/leaflet.css';
   const ACCESS_TOKEN = import.meta.env.PUBLIC_JAWG_ACCESS_TOKEN
 
-  const innerWidth = screen.width;
-
-  // if innerWidth > lg-width (1024px)
-  // use zoom 9
-  // else
-  // use zoom 11
-
+  
   var SGMap = L.map('mapID', {
     zoomControl: false,
     zoomSnap: 0.5,
   }).setView([1.33, 103.82]);
+  
+  const innerWidth = screen.width;
+  // if innerWidth > lg-width (1024px)
+  // use zoom 9
+  // else
+  // use zoom 11
   if (innerWidth >= 1024){
     SGMap.setZoom(10).setMinZoom(10)
   }

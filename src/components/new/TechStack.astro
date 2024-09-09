@@ -1,9 +1,56 @@
 ---
 import Card from "../Card/index.astro";
+import TechStackCarousel from "./TechStackCarousel.jsx"
+import { getImage } from "astro:assets";
+import { type ImageProps } from "../../lib/utils"
+import type { ImageMetadata } from "astro";
+
+
+export async function processImages(imageFiles: Record<string, ImageProps>) {
+  // Extract image data and create an array of image objects
+  const images = Object.entries(imageFiles).map(([path, module]) => ({
+    ...module.default,
+    alt: path.split('/').pop()?.split('.')[0],
+  }));
+
+
+  // Asynchronously process images using getImage and Promise.all
+  const optimizedImages = await Promise.all(
+    images.map(async (image) => {
+      const optimizedImage = await getImage({
+        src: image,
+        alt: image.alt,
+        width: 50,
+        height: 50,
+        loading: 'lazy',
+        decoding: 'async'
+      });
+      return optimizedImage;
+    }),
+  );
+  
+    // console.log("OptimizedImages: ", optimizedImages)
+
+  return optimizedImages;
+}       
+
+const imagesFiles: Record<string, ImageProps> = import.meta.glob(
+  'src/assets/icons/*.{jpg,jpeg,png,svg}',
+  { eager: true },
+);
+
+// console.log(imagesFiles)
+
+// Returns an ARRAY of images with its original and optimized attributes
+const processedImages = await processImages(imagesFiles); 
+// console.log("processedImages: ", processedImages)
+console.log((processedImages[0]))
 ---
 
 <Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-2 md:row-span-3" title="Tech Stack">
-  <div class="">
-    Tech Stack Carousell
+  <div class="text-white">
+    <!-- <TechStackCarousel client:only="react"/> -->
+     <!-- {processedImages} -->
+    <TechStackCarousel images={processedImages} client:only="react"/>
   </div>
 </Card>

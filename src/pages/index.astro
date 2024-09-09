@@ -1,12 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card/index.astro";
-import IntroCard from "../components/IntroCard.astro";
-import ContactsCard from "../components/ContactsCard.astro";
-import TimeZone from "../components/TimeZoneCard.astro";
-import AboutMe from "../components/AboutMe.astro";
-import Now from "../components/Now.astro";
-import Globe from "../components/Globe";
 import ProjectsCard from "../components/new/ProjectsCard.astro";
 import About from "../components/new/About.astro";
 import Avatar from "../components/new/Avatar.astro";
@@ -14,6 +8,7 @@ import Photos from "../components/new/Photos.astro";
 import TechStack from "../components/new/TechStack.astro";
 import Spotify from "../components/new/Spotify.astro";
 import MapCard from "../components/new/MapCard.astro";
+import '@/base.css'
 ---
 
 <script>
@@ -38,10 +33,11 @@ import MapCard from "../components/new/MapCard.astro";
   timeline(sequence as TimelineDefinition);
 </script>
 
+<!-- TODO: to fill in description and title -->
 <Layout
-  title="Gianmarco Cavallo - Freelance front-end Developer"
-  description="I'm a developer based in Italy, passionate about user experience and specializing in engaging animations and micro-interactions. My primary tools of choice include: JavaScript, React, Solid.js, Astro, Svelte, and Node.js."
->
+  title="Enoch Mok"
+  description=""
+  >
   <main
     class="min-h-full text-white m-auto p-2 grid grid-flow-row auto-rows-auto gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 sm:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px] prose prose-headings:font-poppins font-notosans prose-invert"
   >
@@ -62,7 +58,7 @@ import MapCard from "../components/new/MapCard.astro";
   <ProjectsCard />
     <Avatar />
     <MapCard />
-    <TechStack />
+    <!-- <TechStack /> -->
     <Photos />
     <Spotify />
 
