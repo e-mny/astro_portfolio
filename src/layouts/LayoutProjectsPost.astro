@@ -23,13 +23,13 @@ const { frontmatter } = Astro.props;
   title={`${frontmatter.title} | Enoch Mok`}
   description={frontmatter.description}
 >
-  <main class="mx-auto max-w-3xl w-full min-h-full p-8 text-neutral-100">
+  <main class="mx-auto max-w-3xl w-full max-h-screen pb-60 p-8 text-neutral-100 relative flex flex-col justify-start items-start prose prose-headings:font-poppins font-notosans prose-invert">
     <a
       href="/projects"
       class="text-white bg-zinc-900 hover:bg-zinc-800 px-4 py-2 border-1 border-solid border-zinc-600 rounded-lg mb-8"
       >Back</a
     >
-    <div class="my-10">
+    <div class="mb-6">
       <h1 class="text-5xl font-poppins">{frontmatter.title}</h1>
       {frontmatter.image ? <Image src={frontmatter.image || ""} alt={"Image of ".concat(frontmatter.title)} width="800" height="100" class="rounded-3xl shadow-2xl"/> : ""}
       
