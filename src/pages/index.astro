@@ -9,6 +9,9 @@ import TechStack from "../components/new/TechStack.astro";
 import Spotify from "../components/new/Spotify.astro";
 import MapCard from "../components/new/MapCard.astro";
 import '@/base.css'
+import { projectData } from "@/content/data";
+
+const numProjects: number = projectData.length
 ---
 
 <script>
@@ -31,6 +34,8 @@ import '@/base.css'
   ];
 
   timeline(sequence as TimelineDefinition);
+
+
 </script>
 
 <!-- TODO: to fill in description and title -->
@@ -51,9 +56,15 @@ import '@/base.css'
   </div>
   </Card>
   <Card colSpan="sm:col-span-1" rowSpan="sm:row-span-1 lg:row-span-2" title="NumProjects" numCard={true}>
-  <div class="">
-    Number of Projects done
-  </div>
+    <div class="flex flex-col items-center justify-center text-center h-full">
+
+      <div class="text-8xl">
+        {numProjects}
+      </div>
+      <div class="text-base">
+        self-started projects
+      </div>
+    </div>
 </Card>
   <ProjectsCard />
     <Avatar />
