@@ -27,26 +27,26 @@ const schema =
     ? {
         "@context": "http://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
-        url: "https://gianmarco.xyz",
+        name: "Enoch Mok",
+        url: "https://enochmok.vercel.app/",
         sameAs: [
-          "https://www.linkedin.com/in/gianmarco-cavallo",
-          "https://github.com/Ladvace",
+          "https://www.linkedin.com/in/enochmok/",
+          "https://github.com/e-mny",
         ],
-        image: "https://gianmarco.xyz/og-image.png",
-        jobTitle: "Freelance Frontend Developer",
+        image: "https://enochmok.vercel.app/og-image.png",
+        jobTitle: "Data Scientist",
         worksFor: {
           "@type": "Organization",
-          name: "Self-Employed",
+          name: "Student",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
+            addressLocality: "Singapore",
+            addressCountry: "SG",
           },
         },
         nationality: {
           "@type": "Country",
-          name: "Italy",
+          name: "Singapore",
         },
       }
     : {
@@ -54,26 +54,26 @@ const schema =
         "@type": "projectsPosting",
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://gianmarco.xyz/projects/${slug}`,
+          "@id": `https://enochmok.vercel.app/projects/${slug}`,
         },
         headline: frontmatter?.title || title,
         description: frontmatter?.description || title,
-        image: "https://gianmarco.xyz/og-image.png", //TODO: dynamic
+        image: "https://enochmok.vercel.app/og-image.png", //TODO: dynamic
         author: {
           "@type": "Person",
-          name: "Gianmarco",
-          url: "https://gianmarco.xyz",
+          name: "Enoch Mok",
+          url: "https://enochmok.vercel.app/",
           sameAs: [
-            "https://www.linkedin.com/in/gianmarco-cavallo",
-            "https://github.com/Ladvace",
+            "https://www.linkedin.com/in/enochmok/",
+            "https://github.com/e-mny",
           ],
         },
         publisher: {
           "@type": "Organization",
-          name: "Gianmarco",
+          name: "Enoch Mok",
           logo: {
             "@type": "ImageObject",
-            url: "https://gianmarco.xyz/og-image.png",
+            url: "https://enochmok.vercel.app/og-image.png",
           },
         },
         datePublished: frontmatter?.date || new Date().toISOString(),
@@ -101,7 +101,7 @@ import '@/base.css'
     <meta property="og:url" content={Astro.url.origin} />
     <meta
       property="og:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
+      content={image || "https://enochmok.vercel.app/og-image.png"}
     />
     <!-- Basic Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -109,7 +109,7 @@ import '@/base.css'
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content={image || "https://gianmarco.xyz/og-image.png"}
+      content={image || "https://enochmok.vercel.app/og-image.png"}
     />
 
     <link rel="preconnect" href="https://cdn.fontshare.com" />

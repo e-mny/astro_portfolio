@@ -1,0 +1,29 @@
+---
+import AutoScroll from "embla-carousel-auto-scroll";
+import Autoplay from "embla-carousel-autoplay";
+
+import { Card, CardContent } from "../ui/card";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { Image } from "astro:assets";
+import TechStackCarousel from "./TechStackCarousel";
+
+
+const imageFiles = await Astro.glob("../../../src/assets/tech_icons/*.svg");
+let imageArr = imageFiles.map((image) => {
+
+
+    // Getting alt_text
+    let fileName = image.default.src.split("/")[image.default.src.split("/").length-1]
+    let alt_text = fileName.split(".")[0]
+
+    return {
+      ...image,
+    alt: alt_text
+  }
+  })
+
+
+---
+<div>
+  <TechStackCarousel images={imageArr} client:load/>
+</div>

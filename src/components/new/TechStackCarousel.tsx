@@ -19,34 +19,23 @@ const IconPath = {
   "PyTorch": "src/assets/icons/pytorch.svg",
 };
 
-interface TechStackCarouselProps {
-  images: GetImageResult[]; // Array of image results
+interface ImageProps {
+  default?: {
+    src: string;
+  };
+  alt: string;
 }
 
+interface TechStackCarouselProps {
+  images: ImageProps[]; // Array of image results
+}
+
+
+
 const TechStackCarousel: React.FC<TechStackCarouselProps> = ({ images }) => { 
-  // const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  // const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  // console.log(images.default)
 
-  // const handleMouseEnter = (index: number) => {
-  //   // Set a delay for showing the text
-  //   const timeoutId = setTimeout(() => {
-  //     setHoveredIndex(index);
-  //   }, 100);
 
-  //   setHoverTimeout(timeoutId);
-  // };
-
-  // const handleMouseLeave = () => {
-  //   // Clear the timeout if the mouse leaves before the delay
-  //   if (hoverTimeout) {
-  //     clearTimeout(hoverTimeout);
-  //     setHoverTimeout(null);
-  //   }
-
-  //   setHoveredIndex(null);
-  // }; 
-
-  console.log(images)
   return (
   <Carousel
     plugins={[
@@ -69,12 +58,12 @@ const TechStackCarousel: React.FC<TechStackCarouselProps> = ({ images }) => {
     className="w-full max-w-xs"
   >
     <CarouselContent className="text-white">
-      {Object.entries(IconPath).map(([imagesKey, imagesProps]) => {
+      {Object.entries(images).map(([imagesIndex, imagesProps]) => {
         return (
           TSCarouselItem({
-            key: imagesKey,
-            src: imagesProps
-          })
+            key: imagesProps.alt || `image-${imagesIndex}`,
+            src: imagesProps.default.src
+          },)
         )
         
       })}
