@@ -40,14 +40,14 @@ const TechStackCarousel: React.FC<TechStackCarouselProps> = ({ images }) => {
   <Carousel
     plugins={[
       Autoplay({
-        stopOnInteraction: false,
-        stopOnMouseEnter: true,
-        stopOnFocusIn: false,
+        // stopOnInteraction: false,
+        // stopOnMouseEnter: true,
+        // stopOnFocusIn: false,
         delay: 500,
       }),
       AutoScroll({
         startDelay: 0,
-        speed: 1.5,
+        speed: 1.75,
       }),
     ]}
     opts={{
@@ -55,8 +55,8 @@ const TechStackCarousel: React.FC<TechStackCarouselProps> = ({ images }) => {
       loop: true,
       watchDrag: false,
     }}
-    className="w-full max-w-xs"
-  >
+    className="w-full h-full justify-center items-center flex"
+    >
     <CarouselContent className="text-white">
       {Object.entries(images).map(([imagesIndex, imagesProps]) => {
         return (

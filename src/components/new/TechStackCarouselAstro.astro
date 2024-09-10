@@ -1,0 +1,25 @@
+---
+import TechStackCarousel from "./TechStackCarousel";
+import { shuffle } from "d3";
+
+
+const imageFiles = await Astro.glob("../../../src/assets/tech_icons/*.svg");
+let imageArr = imageFiles.map((image) => {
+    // Getting alt_text
+    let fileName: string = image.default.src.split("/")[image.default.src.split("/").length-1]
+    let alt_text: string = fileName.split(".")[0]
+    if ((alt_text === "html") || (alt_text === "css")){
+      alt_text = alt_text.toUpperCase()
+    }
+
+    return {
+      ...image,
+    alt: alt_text
+  }
+  })
+
+const shuffledImageArr = shuffle(imageArr)
+
+---
+
+<TechStackCarousel images={shuffledImageArr} client:only="react"/>

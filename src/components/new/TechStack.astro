@@ -1,18 +1,13 @@
 ---
 import Card from "../Card/index.astro";
-import TechStackCarousel from "./TechStackCarousel.tsx"
-import TechStackCarouselA from "./TechStackCarouselA.astro";
-import { getImage } from "astro:assets";
-import { type ImageProps } from "../../lib/utils"
-import type { ImageMetadata } from "astro";
-
+import TechStackCarouselAstro from "./TechStackCarouselAstro.astro";
 
 ---
 
-<Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-2 md:row-span-3" title="" addClass="flex align-middle items-center">
-  <div class="">
-    <span class="text-2xl text-white">Tech Stack</span>
-    <!-- <TechStackCarousel client:load/> -->
-     <TechStackCarouselA/>
+<Card colSpan="sm:col-span-2 md:col-span-1" rowSpan="sm:row-span-2 md:row-span-3 lg:row-span-2" title="" addClass="w-full p-0 m-0">
+  <div class="flex h-full items-center justify-center flex-col">
+    <span class="text-2xl text-white pb-0">Tools I've used</span>
+    <!-- <p class="text-base"></p> -->
+     <TechStackCarouselAstro/>
   </div>
 </Card>

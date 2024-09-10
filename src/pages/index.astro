@@ -10,7 +10,7 @@ import Spotify from "../components/new/Spotify.astro";
 import MapCard from "../components/new/MapCard.astro";
 import { projectData } from "@/content/data";
 
-const numProjects: number = projectData.length
+const numProjects: number = projectData.length - 1
 const numYears: number = new Date().getFullYear() - 2021
 ---
 
@@ -44,7 +44,7 @@ const numYears: number = new Date().getFullYear() - 2021
   description=""
   >
   <main
-    class="min-h-full text-white m-auto p-2 grid grid-flow-row auto-rows-auto gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 sm:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 prose prose-headings:font-poppins font-notosans prose-invert"
+    class="min-h-full text-white m-auto p-2 grid grid-flow-row auto-rows-auto gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 sm:grid-cols-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 prose prose-headings:font-poppins font-notosans prose-invert"
   >
 
 
@@ -71,11 +71,11 @@ const numYears: number = new Date().getFullYear() - 2021
       </div>
     </div>
 </Card>
+<Photos />
+<Avatar />
   <ProjectsCard />
-    <Avatar />
-    <MapCard />
     <TechStack />
-    <Photos />
+    <MapCard />
     <Spotify />
 
     <!-- OLD -->
