@@ -7,21 +7,23 @@ const { title, date, url } = Astro.props;
 <!-- TODO
  To add design like in inspiration/projects_inspiration.jpg -->
 
-<li class="w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-2">
+<div class="w-full flex justify-between items-center border-b border-dashed border-neutral-400 my-4 group hover:bg-neutral-800 transition-colors rounded-lg py-0">
   <a
-    class="text-sm md:text-base decoration-none flex justify-between"
+    class="text-sm md:text-base decoration-none no-underline w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1"
     href={`/projects/${url}`}
   >
-    <p class="inline-block whitespace-nowrap font-poppins">
-      {title}
-    </p>
-
-    <time
-      class="text-right tabular-nums font-notosans"
-      datetime={date.toISOString()}
-      data-date={date.toISOString()}
-    >
-      {formatDate(date)}
-    </time>
+    <div class="flex justify-between items-center">
+      <p class="whitespace-nowrap font-poppins">
+        {title}
+      </p>
+      
+      <time
+        class="text-right tabular-nums font-notosans"
+        datetime={date.toISOString()}
+        data-date={date.toISOString()}
+      >
+        {formatDate(date)}
+      </time>
+    </div>
   </a>
-</li>
+</div>
