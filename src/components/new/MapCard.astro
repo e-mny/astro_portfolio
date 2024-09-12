@@ -15,15 +15,21 @@ import Card from "../Card/index.astro";
   
   const innerWidth = screen.width;
   // if innerWidth > lg-width (1024px)
-  // use zoom 9
-  // else
+  // use zoom 10
+  // elif innerWidth > md-width (768px)
+  // use zoom 12
+  // else 
   // use zoom 11
   if (innerWidth >= 1024){
     SGMap.setZoom(10).setMinZoom(10)
   }
-  else{
+  else if (innerWidth >= 768){
     SGMap.setZoom(11).setMinZoom(11)
   }
+  else{
+    SGMap.setZoom(10).setMinZoom(10)
+  }
+  
   L.tileLayer(`https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`, {}).addTo(SGMap);
   SGMap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>")
 
