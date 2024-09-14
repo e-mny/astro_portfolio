@@ -13,7 +13,7 @@ interface ScrollAreaDemoProps {
 
 export function ScrollAreaDemo({ addClass }: ScrollAreaDemoProps) {
   return (
-    <ScrollArea className={cn("h-72 w-full rounded-md pl-0", addClass)}>
+    <ScrollArea className={cn("h-48 w-full rounded-md pl-0", addClass)}>
       <div className="">
         {/* TODO: Replace the content of the projects */}
 

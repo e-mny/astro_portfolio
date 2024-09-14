@@ -1,8 +1,22 @@
 ---
 import Card from "../Card/index.astro";
+import { shuffle } from "d3";
+const imageFiles = await Astro.glob("../../../src/assets/tech_icons/*.svg");
+let imageArr = imageFiles.map((image) => {
+    // Getting alt_text
+    let fileName: string = image.default.src.split("/")[image.default.src.split("/").length-1]
+    let alt_text: string = fileName.split(".")[0]
+
+    return {
+      ...image,
+    alt: alt_text
+  }
+  })
+
+const shuffledImageArr = shuffle(imageArr)
 ---
 
-<Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-2" title="Photos">
+<Card colSpan="sm:col-span-2 lg:col-span-1" rowSpan="sm:row-span-2 lg:row-span-3" title="Photos">
   <div class="">
     Photo Slideshow
   </div>

@@ -5,7 +5,6 @@ import vercel from "@astrojs/vercel/serverless";
 import icon from "astro-icon";
 
 import react from "@astrojs/react";
-import solidJs from "@astrojs/solid-js";
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 
 import svelte from "@astrojs/svelte";
@@ -26,7 +25,6 @@ export default defineConfig({
         "https://enochmok.vercel.app/sitemap-0.xml",
       ],
     }), 
-    // solidJs(), 
     icon(), 
     svelte(), 
     tailwind({
@@ -41,7 +39,4 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     },}),
-  vite: {
-    assetsInclude: "**/*.riv",
-  },
 });
