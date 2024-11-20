@@ -1,0 +1,19 @@
+---
+import PhotosCarousel from "./PhotosCarousel";
+import { shuffle } from "d3";
+const imageFiles = await Astro.glob("../../../src/assets/photos/*.JPG");
+let imageArr = imageFiles.map((image) => {
+    // Getting alt_text
+    let fileName: string = image.default.src.split("/")[image.default.src.split("/").length-1]
+    let alt_text: string = fileName.split(".")[0]
+
+    return {
+      ...image,
+    alt: alt_text
+  }
+  })
+
+const shuffledImageArr = shuffle(imageArr)
+---
+
+<PhotosCarousel images={shuffledImageArr} client:only="react"/>

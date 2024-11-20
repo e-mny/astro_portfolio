@@ -37,6 +37,7 @@
 [ ] All images have alt text
 [ ] Remove unused CSS using [PurgeCSS](https://github.com/FullHuman/purgecss)
 [ ] Look into using @astrojs/mdx & other integrations [Astro Integrations](https://astro.build/integrations/)
+[ ] Add Glow animation whenever there is a hover over a card
 
 
 

@@ -3,7 +3,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 import { Card, CardContent } from "../ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import TSCarouselItem from "./TSCarouselItem";
+import PhotosCarouselItem from "./PhotosCarouselItem";
 
 
 
@@ -46,23 +46,24 @@ const TechStackCarousel: React.FC<TechStackCarouselProps> = ({ images }) => {
       }),
       AutoScroll({
         startDelay: 0,
-        speed: 1.75,
+        speed: 1.5,
       }),
+
     ]}
     opts={{
       align: "center",
       loop: true,
       watchDrag: false,
     }}
-    className="w-full h-full justify-center items-center flex"
+    className="w-full h-full justify-center items-center m-0 flex"
     >
     <CarouselContent className="text-white">
       {Object.entries(images).map(([imagesIndex, imagesProps]) => {
         return (
-          TSCarouselItem({
+          PhotosCarouselItem({
             key: imagesProps.alt || `image-${imagesIndex}`,
             src: imagesProps.default.src
-          },)
+          }, )
         )
         
       })}

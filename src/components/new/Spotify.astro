@@ -1,11 +1,49 @@
 ---
 import Card from "../Card/index.astro";
+import { getSpotifyToken, retrieveTopSongs} from "../../lib/spotify"
+
+// let token = await getSpotifyToken().then((value) => value)
+// console.log(token)
+
+// const res = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=20`, {
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//       'scope': 'user-read-private user-read-email'
+//     },
+//     method: 'GET',
+    
+//   })
+//   .then((result) => console.log(result))
+//   .catch((result) => {throw new Error ("Error is: " + result.status)});
+
+
+// console.log(res)
+// // const response = await fetch('https://api.spotify.com/v1/me', {
+// //   headers: {
+// //     Authorization: 'Bearer ' + token
+// //   }
+// // });
+
+// // const data = await response.json();
+
+// let playlist = await retrieveTopSongs()
+// console.log(playlist)
+
 ---
 
 <!-- Can refer to this ETL project https://medium.com/apache-airflow/building-etl-pipeline-with-airflow-spotify-d1bccb2f4d13 -->
 
-<Card colSpan="sm:col-span-2" rowSpan="sm:row-span-2" title="Spotify">
-  <div class="">
-    Spotify Stats
+<Card colSpan="sm:col-span-2" rowSpan="sm:row-span-2" title="" addClass="p-0 m-0 ">
+  <!-- Spotify Stats -->
+  <div class="flex h-full w-full items-center justify-center rounded-lg overflow-hidden">
+    <iframe 
+      title="Currently listening..." 
+      style="border-radius:0.5rem;" 
+      src="https://open.spotify.com/embed/playlist/1OrTf5Z0l3NqAONtCRkrKL?utm_source=generator" 
+      width="100%" 
+      height="152px"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
   </div>
 </Card>

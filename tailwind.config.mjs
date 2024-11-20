@@ -5,7 +5,8 @@ export default {
 	theme: {
     	fontFamily: {
     		poppins: ['Poppins', 'sans-serif'],
-    		notosans: ['Noto Sans KR ExtraLight"', 'sans-serif']
+    		notosans: ['Noto Sans KR ExtraLight"', 'sans-serif'],
+			borel: ['Borel', 'sans-serif']
     	},
     	screens: {
     		sm: '375px',
