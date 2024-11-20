@@ -1,6 +1,9 @@
 ---
 import Card from "../Card/index.astro";
-import { getSpotifyToken, retrieveTopSongs} from "../../lib/spotify"
+import {getTopTracks, getSpotifyToken, retrieveTopSongs} from "../../lib/spotify"
+
+console.log("Client Side")
+
 
 // let token = await getSpotifyToken().then((value) => value)
 // console.log(token)
@@ -26,8 +29,10 @@ import { getSpotifyToken, retrieveTopSongs} from "../../lib/spotify"
 
 // // const data = await response.json();
 
-// let playlist = await retrieveTopSongs()
+// let playlist = await getTopTracks()
 // console.log(playlist)
+
+let playlist = await retrieveTopSongs()
 
 ---
 
@@ -35,8 +40,8 @@ import { getSpotifyToken, retrieveTopSongs} from "../../lib/spotify"
 
 <Card colSpan="sm:col-span-2" rowSpan="sm:row-span-2" title="" addClass="p-0 m-0 ">
   <!-- Spotify Stats -->
-  <div class="flex h-full w-full items-center justify-center rounded-lg overflow-hidden">
-    <iframe 
+  <!-- <div class="flex h-full w-full items-center justify-center rounded-lg overflow-hidden"> -->
+    <!-- <iframe 
       title="Currently listening..." 
       style="border-radius:0.5rem;" 
       src="https://open.spotify.com/embed/playlist/1OrTf5Z0l3NqAONtCRkrKL?utm_source=generator" 
@@ -44,6 +49,15 @@ import { getSpotifyToken, retrieveTopSongs} from "../../lib/spotify"
       height="152px"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
       loading="lazy">
-    </iframe>
+    </iframe> -->
+    <!-- </div> -->
+     <div>
+    {playlist.map((item, index) => 
+    (index < 5) ? (
+      <div itemid={index} class="">
+        {item.name} - {item.artist}
+        </div>
+    ) : (<></>))
+    }
   </div>
 </Card>

@@ -38,6 +38,9 @@
 [ ] Remove unused CSS using [PurgeCSS](https://github.com/FullHuman/purgecss)
 [ ] Look into using @astrojs/mdx & other integrations [Astro Integrations](https://astro.build/integrations/)
 [ ] Add Glow animation whenever there is a hover over a card
+[ ] Show timeline of projects done in year
+[ ] Instead of map, show running stats on strava (using a dashboard)
+    - Need to transfer data from NRC to Strava
 
 
 
