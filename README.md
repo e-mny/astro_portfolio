@@ -23,6 +23,10 @@
 - [Twitter Card Validator](https://cards-dev.twitter.com/validator)
 
 [ ] Icons and Favicon
+- globe_preview.png
+- me.webp
+- og-image.png
+- preview.png
 
 [ ] Performance
 
