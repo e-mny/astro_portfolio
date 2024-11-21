@@ -28,8 +28,7 @@ let imageArr = imageFiles.map((image) => {
   }
   })
 
-const shuffledImageArr = shuffle(imageArr)
 
 ---
 
-<TechStackCarousel images={shuffledImageArr} client:only="react"/>
+<TechStackCarousel images={imageArr} client:only="react"/>
