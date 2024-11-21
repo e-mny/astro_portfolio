@@ -4,7 +4,7 @@ title: "Hello, World"
 description: "this is a post example"
 date: 2023-01-21
 tag: "intro"
-image: "/public/preview.png"
+# image: "/public/preview.png"
 ---
 
 # Hi there!
