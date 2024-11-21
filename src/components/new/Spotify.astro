@@ -46,19 +46,19 @@ let {url: displayAlbumImageURL, height: displayAlbumImageHeight, width: displayA
 
       <!-- Text Section -->
       <div class="flex flex-col sm:items-center md:items-start h-full w-full">
-        <p class="text-lg font-semibold capitalize sm:mb-0 md:my-0 align-top italic" style="color: #1DB954">Been jamming to... <span class="not-italic">🎧</span></p>
+        <p class="text-lg font-semibold capitalize sm:mb-0 sm:pt-4 md:pt-0 md:my-0 align-top italic" style="color: #1DB954">Been jamming to... <span class="not-italic">🎧</span></p>
         <!-- Main Content Section -->
       <!-- <div class="flex flex-col justify-between w-full flex-grow"> -->
         <!-- Empty space for pushing the playlist to the bottom -->
         <!-- <div></div> -->
         
         <!-- Playlist Section -->
-         <div class="flex-grow overflow-auto max-h-[calc(100vh-200px)]">               
+         <div class="flex-grow overflow-auto max-h-[calc(100vh-200px)] w-full">               
                {playlist.map((item, index) =>
             index < numSongsDisplayed ? 
             (
               <div id={index} class={`flex justify-between items-center my-1 ${index === 0 ? "text-lg text-nowrap" : "text-xs"}`}>
-                <a href={item.preview_url} class="no-underline px-1 align-middle flex items-center h-full">
+                <a href={item.preview_url} class="no-underline pr-1 align-middle flex items-center h-full">
                       {index === 0 
                       ? 
                       <Icon name="ph:play-circle-fill" class="h-7 align-middle" />
