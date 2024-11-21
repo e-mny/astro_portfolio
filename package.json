@@ -25,6 +25,7 @@
     "@rive-app/canvas": "^2.19.3",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
+    "@vercel/speed-insights": "^1.1.0",
     "astro": "^4.11.5",
     "astro-icon": "^1.1.0",
     "astro-robots-txt": "^1.0.0",
