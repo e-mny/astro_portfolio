@@ -14,13 +14,14 @@ interface Props {
   width?: string;
   addClass?: string;
   numCard?: boolean;
+  pad?: string;
 }
 
-const { title, body, colSpan, rowSpan, href, colorText, height, width, addClass, numCard } = Astro.props;
+const { title, body, colSpan, rowSpan, href, colorText, height, width, addClass, numCard, pad } = Astro.props;
 ---
 
 <div
-  class={clsx(`card w-full sm:aspect-w-1 sm:aspect-h-1 group lg:overflow-y-auto bg-darkslate-500 shadow-lg rounded-lg p-6 hover:border-primary-500 align-start ${height || "h-full"} justify-start transform perspective-1200 transition duration-75 ease-in-out col-span-1 ${colSpan || "md:col-span-2"} ${rowSpan || ""} ${numCard ? "flex xs:min-h-[200px] items-center justify-center border" : "border border-darkslate-100"}`, addClass)}
+  class={clsx(`card w-full sm:aspect-w-1 sm:aspect-h-1 group lg:overflow-y-auto bg-darkslate-500 shadow-lg rounded-lg p-6 hover:border-primary-500 align-start ${height || "h-full"} justify-start transform perspective-1200 transition duration-75 ease-in-out col-span-1 ${colSpan || "md:col-span-2"} ${rowSpan || ""} ${numCard ? "flex xs:min-h-[200px] items-center justify-center border" : "border border-darkslate-100"} ${pad || "p-6"}`, addClass)}
 >
   {
     href ? (

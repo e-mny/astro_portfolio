@@ -157,18 +157,18 @@ async function retrieveTopSongs(){
   // const createdPlaylist = await createPlaylist(topTracksUri);
 
   // return await createdPlaylist;
-  const topTracksData = topTracks?.map(
-    ({name, album, artists, uri}) => ({
-      "name": name,
-      "album": album.name,
-      "album_uri": album.uri,
-      "artist": artists[0].name,
-      "artist_uri": artists[0].uri,
-      "song_uri": uri
-    })
-  )
+  // const topTracksData = topTracks?.map(
+  //   ({name, album, artists, uri}) => ({
+  //     "name": name,
+  //     "album": album.name,
+  //     "album_uri": album.uri,
+  //     "artist": artists[0].name,
+  //     "artist_uri": artists[0].uri,
+  //     "song_uri": uri
+  //   })
+  // )
 
-  return topTracksData
+  return topTracks
 }
 
 // console.log(await getSpotifyToken())
@@ -176,4 +176,13 @@ async function retrieveTopSongs(){
 // console.log(topSongsPlaylist)
 // const topSongsPlaylistID = topSongsPlaylist.id;
 
-export {getTopTracks, retrieveTopSongs, getSpotifyToken};
+async function getAlbumArtURL(albumID: string){
+  console.log("Getting Album Art")
+
+  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-an-album
+  return (await fetchWebApi(
+    `v1/albums/${albumID}`, 'GET'
+  )).images[0];
+}
+
+export {getTopTracks, retrieveTopSongs, getSpotifyToken, getAlbumArtURL};

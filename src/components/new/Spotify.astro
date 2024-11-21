@@ -1,63 +1,82 @@
 ---
 import Card from "../Card/index.astro";
-import {getTopTracks, getSpotifyToken, retrieveTopSongs} from "../../lib/spotify"
+import {retrieveTopSongs, getAlbumArtURL} from "../../lib/spotify"
+import { Icon } from "astro-icon/components";
+
 
 console.log("Client Side")
 
 
-// let token = await getSpotifyToken().then((value) => value)
-// console.log(token)
-
-// const res = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=20`, {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       'scope': 'user-read-private user-read-email'
-//     },
-//     method: 'GET',
-    
-//   })
-//   .then((result) => console.log(result))
-//   .catch((result) => {throw new Error ("Error is: " + result.status)});
-
-
-// console.log(res)
-// // const response = await fetch('https://api.spotify.com/v1/me', {
-// //   headers: {
-// //     Authorization: 'Bearer ' + token
-// //   }
-// // });
-
-// // const data = await response.json();
-
-// let playlist = await getTopTracks()
-// console.log(playlist)
-
 let playlist = await retrieveTopSongs()
+let firstSong = playlist[0]
+// console.log(firstSong)
+let {url: displayAlbumImageURL, height: displayAlbumImageHeight, width: displayAlbumImageWidth} = await getAlbumArtURL(firstSong.album.id)
+// console.log(displayAlbumImageURL)
 
 ---
 
 <!-- Can refer to this ETL project https://medium.com/apache-airflow/building-etl-pipeline-with-airflow-spotify-d1bccb2f4d13 -->
 
-<Card colSpan="sm:col-span-2" rowSpan="sm:row-span-2" title="" addClass="p-0 m-0 ">
+<Card colSpan="sm:col-span-2" rowSpan="sm:row-span-1 lg:row-span-2" title="" body="" addClass="" pad="px-6 py-4">
   <!-- Spotify Stats -->
-  <!-- <div class="flex h-full w-full items-center justify-center rounded-lg overflow-hidden"> -->
-    <!-- <iframe 
+  <!-- <div class="flex h-full w-full items-center justify-center rounded-lg overflow-hidden">
+    <iframe 
       title="Currently listening..." 
-      style="border-radius:0.5rem;" 
+      style="border-radius:0.5rem; background-color: aqua;" 
       src="https://open.spotify.com/embed/playlist/1OrTf5Z0l3NqAONtCRkrKL?utm_source=generator" 
       width="100%" 
       height="152px"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
       loading="lazy">
-    </iframe> -->
-    <!-- </div> -->
-     <div>
-    {playlist.map((item, index) => 
-    (index < 5) ? (
-      <div itemid={index} class="">
-        {item.name} - {item.artist}
+    </iframe>
+    </div> -->
+     <div class="flex md:flex-row sm:flex-col md:items-center sm:items-start md:space-x-4 h-full">
+      <!-- Image Section -->
+      <div class="h-full rounded-lg items-start space-y-4 aspect-square">
+        <!-- <Image 
+          src={displayAlbumImageURL} 
+          alt={`${firstSong.album.name}`} 
+          height={150} 
+          width={150} 
+          class="rounded-lg object-cover m-0"
+        /> -->
+        <img 
+        src={displayAlbumImageURL} 
+        alt={`${firstSong.album.name}`}
+        class="rounded-lg object-cover h-full m-0" />
+      </div>
+
+      <!-- Text Section -->
+      <div class="flex flex-col sm:items-center md:items-start h-full w-full">
+        <audio ></audio>
+        <p class="text-xl font-semibold capitalize my-0 align-top" style="color: #1DB954">Been jamming to...</p>
+        <!-- Main Content Section -->
+      <div class="flex flex-col justify-between w-full flex-grow">
+        <!-- Empty space for pushing the playlist to the bottom -->
+        <div></div>
+        
+        <!-- Playlist Section -->
+        <div class="flex-col relative bottom-0 items-end">
+          {playlist.map((item, index) =>
+            index < 5 ? (
+              <div id={index} class={`flex justify-between items-center my-1 ${index === 0 ? "text-lg text-nowrap" : "text-sm"}`}>
+                <a href={item.preview_url} class="no-underline p-1">
+                      {index === 0 
+                      ? 
+                      <Icon name="ph:play-circle-fill" class="text-base" />
+                      : 
+                      <Icon name="ph:waveform-light" />
+                      } 
+                  </a>
+                  <span class="items-start font-extrabold">{item.name}</span>
+                  <span class="flex-grow border-dotted border-t border-white mx-2"></span>
+                  <span class="items-end text-end">{item.artists.map(({ name }) => name).join(", ")}</span>
+                </div>
+            ) : null
+          )}
         </div>
-    ) : (<></>))
-    }
+      </div>
+      </div>
+    </div>
   </div>
 </Card>
