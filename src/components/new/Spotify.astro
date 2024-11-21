@@ -23,7 +23,7 @@ let {url: displayAlbumImageURL, height: displayAlbumImageHeight, width: displayA
      <div class="flex md:flex-row sm:flex-col md:items-center sm:items-start md:space-x-4 h-full">
       <!-- Image Section -->
       <div class="h-full rounded-lg items-start space-y-4 sm:my-4 md:my-2 sm:h-auto md:h-full sm:w-full md:w-auto">
-        <a href={firstSong.album.external_urls.spotify} >
+        <a href={firstSong.album.external_urls.spotify} aria-label={firstSong.album.name}>
           <img 
           src={displayAlbumImageURL} 
           alt={`${firstSong.album.name}`}
@@ -41,7 +41,7 @@ let {url: displayAlbumImageURL, height: displayAlbumImageHeight, width: displayA
             index < numSongsDisplayed ? 
             (
               <div id={index} class={`flex justify-between items-center my-1 ${index === 0 ? "text-lg text-nowrap" : "text-xs"}`}>
-                <a href={item.preview_url} class="no-underline pr-1 align-middle flex items-center h-full">
+                <a href={item.preview_url} class="no-underline pr-1 align-middle flex items-center h-full" aria-label={`Preview ${item.name}`}>
                       {index === 0 
                       ? 
                       <Icon name="ph:play-circle-fill" class="h-7 align-middle" />

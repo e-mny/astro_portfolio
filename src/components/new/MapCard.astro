@@ -31,7 +31,7 @@ import Card from "../Card/index.astro";
   }
   
   L.tileLayer(`https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`, {}).addTo(SGMap);
-  SGMap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>")
+  SGMap.attributionControl.addAttribution("<a aria-label=\"Map of Singapore\" href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>")
 
   // Creating Avatar
   // TODO: To change avatar icon and popup text
