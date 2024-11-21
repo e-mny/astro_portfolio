@@ -82,6 +82,7 @@ const schema =
 
 import '@/base.css'
 
+import SpeedInsights from '@vercel/speed-insights/astro';
 ---
 
 <!doctype html>
@@ -125,4 +126,5 @@ import '@/base.css'
     <!-- <slot name="loader" /> -->
     <slot />
   </body>
+  <SpeedInsights />
 </html>
