@@ -176,7 +176,7 @@ async function retrieveTopSongs(){
 // console.log(topSongsPlaylist)
 // const topSongsPlaylistID = topSongsPlaylist.id;
 
-async function getAlbumArtURL(albumID: string){
+async function getAlbumImageURL(albumID: string){
   console.log("Getting Album Art")
 
   // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-an-album
@@ -185,4 +185,4 @@ async function getAlbumArtURL(albumID: string){
   )).images[0];
 }
 
-export {getTopTracks, retrieveTopSongs, getSpotifyToken, getAlbumArtURL};
+export {getTopTracks, retrieveTopSongs, getSpotifyToken, getAlbumImageURL};
