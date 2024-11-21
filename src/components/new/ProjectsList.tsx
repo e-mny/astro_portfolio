@@ -1,11 +1,11 @@
-import * as React from "react"
+import * as React from "react";
 
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { cn } from "@/lib/utils"
-import { projectData } from "@/content/data"
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import { projectData } from "@/content/data";
 
-const allProjTitles = projectData.map((project) => project.title)
+const allProjTitles = projectData.map((project) => project.title);
 
 interface ScrollAreaDemoProps {
   addClass?: string;
@@ -20,9 +20,11 @@ export function ScrollAreaDemo({ addClass }: ScrollAreaDemoProps) {
         {allProjTitles.map((title, index) => (
           <React.Fragment key={title}>
             <div className="text-base">{title}</div>
-            {(index < allProjTitles.length - 1) 
-            ? <Separator className="my-2" /> : ""}
-            
+            {index < allProjTitles.length - 1 ? (
+              <Separator className="my-2" />
+            ) : (
+              ""
+            )}
           </React.Fragment>
         ))}
       </div>

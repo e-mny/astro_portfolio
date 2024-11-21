@@ -7,7 +7,7 @@ export function getCurrentTimeInSG(): Date {
   const now = new Date();
 
   // Convert the UTC time to SGT
-  const offsetSGT = 8; 
+  const offsetSGT = 8;
   now.setHours(now.getUTCHours() + offsetSGT);
 
   return now;
@@ -30,6 +30,10 @@ export function formatTimeForSG(date: Date): string {
 }
 
 export function formatDate(date: Date): string {
-  const formatter = new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
   return formatter.format(date);
 }

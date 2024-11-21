@@ -5,11 +5,8 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-    "react": [ "./node_modules/@types/react"
-    ]
+      "@/*": ["./src/*"],
+      "react": ["./node_modules/@types/react"]
     }
   }
 }

@@ -11,26 +11,24 @@ import svelte from "@astrojs/svelte";
 
 import tailwind from "@astrojs/tailwind";
 
-
-
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://enochmok.vercel.app/",
   integrations: [
-    sitemap(), 
+    sitemap(),
     robotsTxt({
       sitemap: [
         "https://enochmok.vercel.app/sitemap-index.xml",
         "https://enochmok.vercel.app/sitemap-0.xml",
       ],
-    }), 
-    icon(), 
-    svelte(), 
+    }),
+    icon(),
+    svelte(),
     tailwind({
       applyBaseStyles: false,
-    }), 
-    react()],
+    }),
+    react(),
+  ],
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
@@ -38,5 +36,6 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: {
       enabled: true,
-    },}),
+    },
+  }),
 });

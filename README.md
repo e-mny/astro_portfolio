@@ -7,22 +7,26 @@
 ## TODOs
 
 [ ] Metadata
-```html
-<meta property="og:title" content="Title">
-<meta property="og:description" content="Description">
-<meta property="og:image" content="Image URL">
-<meta property="og:url" content="URL of the page/article/post">
 
-<meta name="twitter:title" content="Title">
-<meta name="twitter:description" content="Description">
-<meta name="twitter:image" content="Image URL">
-<meta name="twitter:card" content="summary_large_image"> <!-- how the card is displayed -->
+```html
+<meta property="og:title" content="Title" />
+<meta property="og:description" content="Description" />
+<meta property="og:image" content="Image URL" />
+<meta property="og:url" content="URL of the page/article/post" />
+
+<meta name="twitter:title" content="Title" />
+<meta name="twitter:description" content="Description" />
+<meta name="twitter:image" content="Image URL" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- how the card is displayed -->
 ```
+
 - [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/sharing/)
 
 - [Twitter Card Validator](https://cards-dev.twitter.com/validator)
 
 [ ] Icons and Favicon
+
 - globe_preview.png
 - me.webp
 - og-image.png
@@ -54,8 +58,6 @@
 
     - Need to transfer data from NRC to Strava
     - [Documentation for Strava API](https://developers.strava.com/docs/getting-started/)
-
-
 
 ## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
 
