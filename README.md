@@ -49,6 +49,7 @@
 [ ] Instead of map, show running stats on strava (using a dashboard)
 
     - Need to transfer data from NRC to Strava
+    - [Documentation for Strava API](https://developers.strava.com/docs/getting-started/)
 
 
 
