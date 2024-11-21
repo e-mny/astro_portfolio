@@ -7,7 +7,7 @@ const TSCarouselItem: React.FC<{ key: string; src: string }> = ({ key, src }) =>
   return (
     <CarouselItem
       key={key}
-      className="flex-shrink-0 w-full sm:basis-1/4 md:basis-1/3 lg:basis-1/2 p-4 pl-1 sm:pl-1 md:pl-2 lg:pl-2"
+      className="flex-shrink-0 w-full sm:basis-1/4 md:basis-1/3 lg:basis-1/2 p-6 pl-1 sm:pl-1 md:pl-2 lg:pl-2"
     >
       <Card className="flex flex-col w-full h-full aspect-square items-center justify-center text-center bg-transparent border-none">
         <div className="flex flex-col w-full h-full">
