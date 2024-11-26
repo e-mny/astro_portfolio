@@ -1,10 +1,9 @@
 ---
 layout: ../../layouts/LayoutProjectsPost.astro
-title: "Hello, World"
+title: "Mammogram Classification"
 description: "this is a post example"
-date: 2023-01-21
+date: 2024-02-09
 tag: "intro"
-# image: "/public/preview.png"
 ---
 
 # Hi there!

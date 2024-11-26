@@ -8,6 +8,11 @@ const projects = (await getCollection("projects"))?.sort(
     (new Date(projectsEntryB.data.date) || new Date()).getTime() -
     (new Date(projectsEntryA.data.date) || new Date()).getTime(),
 );
+
+const projectYears = new Set(projects?.map(
+  (project)=> (
+        (new Date(project.data.date)).getFullYear()
+      )));
 ---
 
 <script>
@@ -33,23 +38,32 @@ const projects = (await getCollection("projects"))?.sort(
     >
     <h1 class="text-5xl font-bold mb-0 pt-0 text-neutral-100">Projects</h1>
     <ul class="w-full mt-0 pt-0">
-      <h2 class="select-none relative h-14 pointer-events-none">
+      {[...projectYears].map((year) => (
+      <div class="w-full mt-0 pt-0">
+
+        <h2 class="select-none relative h-14 pointer-events-none">
         <span
           class="text-[3.2em] text-zinc-100 font-bold stroke-[3.5px] stroke-white opacity-5 absolute top-0 -z-30"
-        >
-          2024
+          >
+          {year.toString()}
         </span>
       </h2>
 
-      {
-        projects?.map((project) => (
-          <ProjectRow
+        {
+          projects?.map((project) => 
+          year === (new Date(project.data.date)).getFullYear() ? 
+          (
+            <ProjectRow
             title={project.data.title || "No title"}
             date={new Date(project.data.date) || new Date()}
             url={project.slug}
-          />
-        ))
+            />
+          ) :
+          null
+        )
       }
+      </div>
+))}
     </ul>
   </main>
 </Layout>

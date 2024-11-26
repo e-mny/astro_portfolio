@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/LayoutProjectsPost.astro
-title: "Hello, World"
+title: "Covid-19 Analysis"
 description: "this is a post example"
-date: 2023-01-21
+date: 2022-12-08
 tag: "intro"
 ---
 

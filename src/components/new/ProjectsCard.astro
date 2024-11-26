@@ -1,11 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
 import Card from "../Card/index.astro";
-import { ScrollAreaDemo } from "./ProjectsList";
 import { projectData } from "@/content/data";
 import { Separator } from "../ui/separator";
+import { getCollection } from "astro:content";
 
 // console.log(projectData)
+const projectsData = (await getCollection("projects"))?.map((project) => project.data).sort((a, b) => a.title.localeCompare(b.title));
+
+// console.log(projectsData)
 
 ---
 
@@ -22,11 +25,11 @@ import { Separator } from "../ui/separator";
       
     <!-- Projects Section -->
          <div class="overflow-auto max-h-[calc(100vh-200px)] w-full">               
-               {projectData.map((item, index) =>
+               {projectsData.map((item, index) =>
             (
                   <div id={index.toString()} class="flex justify-between items-center my-2 text-base">
                     <a href={item.href} class="no-underline">
-                      <span class="items-start font-extrabold">{item.title}</span>
+                      <span class="items-start">{item.title}</span>
                     </a>
                   </div>
                   <div>

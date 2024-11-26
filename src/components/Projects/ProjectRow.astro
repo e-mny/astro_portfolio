@@ -13,12 +13,12 @@ const { title, date, url } = Astro.props;
     href={`/projects/${url}`}
   >
     <div class="flex justify-between items-center">
-      <p class="whitespace-nowrap font-poppins">
+      <p class="font-poppins text-lg">
         {title}
       </p>
       
       <time
-        class="text-right tabular-nums font-notosans"
+        class="text-right tabular-nums font-notosans text-base"
         datetime={date.toISOString()}
         data-date={date.toISOString()}
       >
