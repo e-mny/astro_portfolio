@@ -28,7 +28,7 @@ const projectsData = (await getCollection("projects"))?.map((project) => project
                {projectsData.map((item, index) =>
             (
                   <div id={index.toString()} class="flex justify-between items-center my-2 text-base">
-                    <a href={item.href} class="no-underline">
+                    <a href={item.link} class="no-underline">
                       <span class="items-start">{item.title}</span>
                     </a>
                   </div>

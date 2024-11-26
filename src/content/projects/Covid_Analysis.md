@@ -4,6 +4,8 @@ title: "Covid-19 Analysis"
 description: "this is a post example"
 date: 2022-12-08
 tag: "intro"
+link: ""
+# image: ""
 ---
 
 # Hi there!

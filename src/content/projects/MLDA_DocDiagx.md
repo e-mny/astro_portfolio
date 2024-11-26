@@ -4,6 +4,8 @@ title: "MLDA_DocDiagx"
 description: "this is a post example"
 date: 2023-01-21
 tag: "intro"
+link: ""
+# image: ""
 ---
 
 # Hi there!

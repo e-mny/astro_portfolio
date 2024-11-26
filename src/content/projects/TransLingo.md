@@ -4,6 +4,8 @@ title: "TransLingo"
 description: "this is a post example"
 date: 2024-02-08
 tag: "intro"
+link: ""
+# image: ""
 ---
 
 # Hi there!

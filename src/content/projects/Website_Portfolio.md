@@ -4,7 +4,8 @@ title: "Astro Portfolio"
 description: "this is a post example"
 date: 2023-01-21
 tag: "intro"
-# image: "/public/preview.png"
+link: ""
+# image: ""
 ---
 
 # Hi there!

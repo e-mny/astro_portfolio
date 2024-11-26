@@ -4,6 +4,8 @@ title: "Mammogram Classification"
 description: "this is a post example"
 date: 2024-02-09
 tag: "intro"
+link: ""
+# image: ""
 ---
 
 # Hi there!

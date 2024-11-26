@@ -4,6 +4,8 @@ title: "Retinal Segmentation"
 description: "this is a post example"
 date: 2024-07-02
 tag: "intro"
+link: ""
+# image: ""
 ---
 
 # Hi there!
