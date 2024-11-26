@@ -1,14 +1,39 @@
 ---
+import { Icon } from "astro-icon/components";
 import Card from "../Card/index.astro";
+import { LINKS } from "../../lib/constants";
+
 ---
 
 <Card colSpan="sm:col-span-2 md:col-span-2" rowSpan="sm:row-span-2 md:row-span-4">
-  <div class="flex items-center text-center justify-center align-middle h-full">
+  <div class="flex flex-col items-center text-center justify-center align-middle h-full">
 
-    <div class="font-borel italic text-4xl p-8 text-center">
+    <div class="font-borel italic text-4xl p-8 text-center aboslute top-1/2">
       hello<span class="font-poppins text-4xl">!</span>
       <br />
       i'm enoch
     </div>
+
+    <div class="flex flex-row items-center justify-evenly w-full text-center pt-20">
+
+      <!-- GitHub -->
+        <a href={LINKS.github}>
+          <Icon name="simple-icons:github" size="40px"/>
+        </a>
+        
+        <!-- LinkedIn -->
+        <a href={LINKS.linkedin}>
+          <Icon name="simple-icons:linkedin" size="40px"/>
+        </a>
+        
+        <!-- Resume -->
+        <a href="documents/EnochMok_Resume.pdf" target="_blank">
+          <Icon name="pepicons-pencil:cv" size="40px"/>
+        </a>
+        
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center w-full">
   </div>
 </Card>

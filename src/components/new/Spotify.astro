@@ -33,14 +33,14 @@ let {url: displayAlbumImageURL, height: displayAlbumImageHeight, width: displayA
 
       <!-- Text Section -->
       <div class="flex flex-col sm:items-center md:items-start h-full w-full">
-        <p class="text-lg font-semibold capitalize sm:mb-0 md:my-0 align-top italic" style="color: #1DB954">Been jamming to... <span class="not-italic">🎧</span></p>
+        <p class="text-lg capitalize sm:mb-0 md:mt-0 md:mb-2 align-top italic" style="color: #1DB954; font-weight:800;">Been jamming to... <span class="not-italic">🎧</span></p>
         
         <!-- Playlist Section -->
          <div class="flex-grow overflow-auto max-h-[calc(100vh-200px)] w-full">               
                {playlist.map((item, index) =>
             index < numSongsDisplayed ? 
             (
-              <div id={index} class={`flex justify-between items-center my-1 ${index === 0 ? "text-lg text-nowrap" : "text-xs"}`}>
+              <div ={index} class={`flex justify-between items-center my-2 ${index === 0 ? "text-lg text-nowrap" : "text-xs"}`}>
                 <a href={item.preview_url} class="no-underline pr-1 align-middle flex items-center h-full" aria-label={`Preview ${item.name}`}>
                       {index === 0 
                       ? 

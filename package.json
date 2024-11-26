@@ -52,7 +52,9 @@
   },
   "devDependencies": {
     "@iconify-json/material-symbols": "^1.2.0",
+    "@iconify-json/pepicons-pencil": "^1.2.1",
     "@iconify-json/ph": "^1.2.1",
+    "@iconify-json/simple-icons": "^1.2.13",
     "@tailwindcss/typography": "^0.5.15",
     "@types/d3": "^7.4.3",
     "autoprefixer": "^10.4.19",

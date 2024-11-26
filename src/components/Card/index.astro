@@ -20,16 +20,31 @@ interface Props {
 const { title, body, colSpan, rowSpan, href, colorText, height, width, addClass, numCard, pad } = Astro.props;
 ---
 
+<!-- <script>
+  let cards = document.querySelectorAll(".card")
+  cards.forEach((card) => {
+    card.onmousemove = function(e){
+      let x = e.pageX - card.offsetLeft;
+      let y = e.pageY - card.offsetTop;
+
+      card.style.setProperty("--x", x + "px")
+      card.style.setProperty("--y", y + "px")
+    }
+    // console.log(card.style)
+  })
+</script> -->
+
 <div
-  class={clsx(`card w-full sm:aspect-w-1 sm:aspect-h-1 group lg:overflow-y-auto bg-darkslate-500 shadow-lg rounded-lg p-6 hover:border-primary-500 align-start ${height || "h-full"} justify-start transform perspective-1200 transition duration-75 ease-in-out col-span-1 ${colSpan || "md:col-span-2"} ${rowSpan || ""} ${numCard ? "flex xs:min-h-[200px] items-center justify-center border" : "border border-darkslate-100"} ${pad || "p-6"}`, addClass)}
+  class={clsx(`card w-full min-h-full sm:aspect-w-1 sm:aspect-h-1 group lg:overflow-y-auto shadow-lg rounded-lg p-6 border-2 border-white hover:border-slate-400 hover:duration-200 hover:ease-in-out hover:bg-transparent align-start justify-start transform perspective-1200 transition duration-75 ease-in-out col-span-1`, addClass, colSpan || "md:col-span-2", rowSpan,  (numCard ? "flex xs:min-h-[200px] items-center justify-center" : ""), pad || "p-6", height || "h-full")}
 >
-  {
-    href ? (
-      <a href={href} class={`h-full w-full ${colorText || " "}`}>
+
+{
+  href ? (
+    <a href={href} class={`h-full w-full ${colorText || " "}`}>
         <Icon
           name="ri:arrow-right-up-line"
           class="h-6 float-right group-hover:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform ease-in-out duration-100 z-20"
-        />
+          />
         <Content title={title} body={body}>
           <slot />
         </Content>
