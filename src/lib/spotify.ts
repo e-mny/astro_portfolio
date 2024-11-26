@@ -7,6 +7,11 @@ const auth_code = import.meta.env.SPOTIFY_AUTH_CODE;
 let access_token = import.meta.env.SPOTIFY_ACCESS_TOKEN;
 let refresh_token = import.meta.env.SPOTIFY_REFRESH_TOKEN;
 
+if (!client_id || !client_secret) {
+  console.error("Missing Spotify client credentials. Please check your environment variables.");
+  throw new Error("Missing Spotify client credentials.");
+}
+
 async function refreshSpotifyToken() {
   console.log("Refreshing Spotify Token");
   const authUrl = "https://accounts.spotify.com/api/token";
@@ -95,72 +100,81 @@ async function fetchWebApi(endpoint, method, body?) {
   console.log("Fetching API");
   let { access_token, refresh_token } = await refreshSpotifyToken();
   // const token = await getSpotifyToken()
+  try{
 
-  const res = await fetch(`https://api.spotify.com/${endpoint}`, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
-    method,
-    body: JSON.stringify(body),
-  });
-  // console.log(await res)
-  // console.log(await res.json())
-  return await res.json();
+    const res = await fetch(`https://api.spotify.com/${endpoint}`, {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+      method,
+      body: JSON.stringify(body),
+    });
+    
+    // console.log(await res)
+    // console.log(await res.json())
+    return await res.json();
+  }
+  catch (error) {
+    console.error(`Failed to fetch from Spotify API (endpoint: ${endpoint}):`, error.message);
+    throw error;
+  }
 }
 
 async function getTopTracks() {
+  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
   console.log("Getting Top Tracks");
 
-  // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
-  return (
-    await fetchWebApi("v1/me/top/tracks?time_range=short_term&limit=30", "GET")
-  ).items;
+  try {
+    console.log("Getting Top Tracks...");
+    const data = await fetchWebApi("v1/me/top/tracks?time_range=short_term&limit=30", "GET")
+    return data.items || [];
+  } catch (error) {
+    console.error("Failed to get top tracks:", error.message);
+    throw error;
+  }
 }
 
 async function createPlaylist(tracksUriList) {
   console.log("Creating playlist");
-  const { id: user_id } = await fetchWebApi("v1/me", "GET");
 
-  const playlist = await fetchWebApi(`v1/users/${user_id}/playlists`, "POST", {
-    name: "Currently listening",
-    description: "Playlist created by the tutorial on developer.spotify.com",
-    public: false,
-  });
-
-  await fetchWebApi(
-    `v1/playlists/${playlist.id}/tracks?uris=${tracksUriList.join(",")}`,
-    "POST",
-  );
-
-  return playlist;
+  try{
+    const { id: user_id } = await fetchWebApi("v1/me", "GET");
+    
+    const playlist = await fetchWebApi(`v1/users/${user_id}/playlists`, "POST", {
+      name: "Currently listening",
+      description: "Playlist created by the tutorial on developer.spotify.com",
+      public: false,
+    });
+    
+    await fetchWebApi(
+      `v1/playlists/${playlist.id}/tracks?uris=${tracksUriList.join(",")}`,
+      "POST",
+    );
+    
+    return playlist;
+  }
+  catch (error) {
+    console.error("Failed to create playlist:", error.message);
+    throw error;
+  }
 }
 
 async function retrieveTopSongs() {
-  console.log("Retrieving top songs");
-  const topTracks = await getTopTracks();
-  // console.log(topTracks[0])
+  console.log("Retrieving top songs...");
+  try {
+    const topTracks = await getTopTracks();
+    if (!topTracks || !topTracks.length) {
+      console.warn("No top tracks found.");
+      return [];
+    }
 
-  const topTracksName = topTracks?.map(({ name }) => name);
-
-  const topTracksUri = topTracks?.map(({ uri }) => uri);
-
-  // console.log(await topTracks)
-  // console.log(await topTracksUri)
-  // const createdPlaylist = await createPlaylist(topTracksUri);
-
-  // return await createdPlaylist;
-  // const topTracksData = topTracks?.map(
-  //   ({name, album, artists, uri}) => ({
-  //     "name": name,
-  //     "album": album.name,
-  //     "album_uri": album.uri,
-  //     "artist": artists[0].name,
-  //     "artist_uri": artists[0].uri,
-  //     "song_uri": uri
-  //   })
-  // )
-
-  return topTracks;
+    const topTracksUri = topTracks.map(({ uri }) => uri);
+    console.log(`Found ${topTracksUri.length} top tracks.`);
+    return topTracks;
+  } catch (error) {
+    console.error("Failed to retrieve top songs:", error.message);
+    throw error;
+  }
 }
 
 // console.log(await getSpotifyToken())
@@ -170,9 +184,15 @@ async function retrieveTopSongs() {
 
 async function getAlbumImageURL(albumID: string) {
   console.log("Getting Album Art");
-
   // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-an-album
-  return (await fetchWebApi(`v1/albums/${albumID}`, "GET")).images[0];
+
+  try {
+    const data = (await fetchWebApi(`v1/albums/${albumID}`, "GET"));
+    return data.images?.[0] || null;
+  } catch (error) {
+    console.error("Failed to get album image:", error.message);
+    throw error;
+  }
 }
 
 export { getTopTracks, retrieveTopSongs, getSpotifyToken, getAlbumImageURL };
