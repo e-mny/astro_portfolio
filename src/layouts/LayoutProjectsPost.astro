@@ -31,7 +31,7 @@ const { frontmatter } = Astro.props;
       class="text-white bg-zinc-900 hover:bg-zinc-800 px-4 py-2 border-1 border-solid border-zinc-600 rounded-lg mb-8"
       >Back</a
     >
-    <div class="mb-6">
+    <div class="mb-6 w-full">
       <h1 class="text-5xl font-poppins">{frontmatter.title}</h1>
       {frontmatter.image ? <Image src={frontmatter.image || ""} alt={"Image of ".concat(frontmatter.title)} width="800" height="100" class="rounded-3xl shadow-2xl"/> : ""}
       

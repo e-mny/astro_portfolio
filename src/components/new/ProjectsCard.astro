@@ -5,8 +5,7 @@ import { projectData } from "@/content/data";
 import { Separator } from "../ui/separator";
 import { getCollection } from "astro:content";
 
-// console.log(projectData)
-const projectsData = (await getCollection("projects"))?.map((project) => project.data).sort((a, b) => a.title.localeCompare(b.title));
+const projectsData = (await getCollection("projects"))?.sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 // console.log(projectsData)
 
@@ -28,8 +27,8 @@ const projectsData = (await getCollection("projects"))?.map((project) => project
                {projectsData.map((item, index: number) =>
             (
                   <div id={index.toString()} class="flex justify-between items-center my-2 text-base">
-                    <a href={item.link} class="no-underline">
-                      <span class="items-start">{item.title}</span>
+                    <a href={`/projects/${item.slug}`} class="no-underline">
+                      <span class="items-start">{item.data.title}</span>
                     </a>
                   </div>
                   <div>
