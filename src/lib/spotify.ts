@@ -81,8 +81,8 @@ async function getSpotifyToken() {
       return response.json();
     })
     .then((data) => {
-      console.log("Access Token:", data.access_token);
-      console.log("Refresh Token:", data.refresh_token);
+      // console.log("Access Token:", data.access_token);
+      // console.log("Refresh Token:", data.refresh_token);
       return data;
     })
     .catch((error) => {
@@ -125,7 +125,6 @@ async function getTopTracks() {
   console.log("Getting Top Tracks");
 
   try {
-    console.log("Getting Top Tracks...");
     const data = await fetchWebApi("v1/me/top/tracks?time_range=short_term&limit=30", "GET")
     return data.items || [];
   } catch (error) {
