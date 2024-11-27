@@ -35,7 +35,7 @@ const { title, body, colSpan, rowSpan, href, colorText, height, width, addClass,
 </script> -->
 
 <div
-  class={clsx(`card w-full min-h-full sm:aspect-w-1 sm:aspect-h-1 group lg:overflow-y-auto shadow-lg rounded-lg p-6 border-2 border-white hover:border-slate-400 hover:duration-200 hover:ease-in-out hover:bg-transparent align-start justify-start transform perspective-1200 transition duration-75 ease-in-out col-span-1`, addClass, colSpan || "md:col-span-2", rowSpan,  (numCard ? "flex xs:min-h-[200px] items-center justify-center" : ""), pad || "p-6", height || "h-full")}
+  class={clsx(`card w-full xs:min-h-[200px] sm:aspect-w-1 sm:aspect-h-1 group lg:overflow-y-auto shadow-lg rounded-lg p-6 border-2 border-white hover:border-slate-400 hover:duration-200 hover:ease-in-out hover:bg-transparent align-start justify-start transform perspective-1200 transition duration-75 ease-in-out col-span-1`, addClass, colSpan || "md:col-span-2", rowSpan,  (numCard ? "flex xs:min-h-[200px] items-center justify-center" : ""), pad || "p-6", height || "h-auto")}
 >
 
 {
