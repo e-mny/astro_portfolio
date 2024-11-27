@@ -25,7 +25,7 @@ const projectsData = (await getCollection("projects"))?.map((project) => project
       
     <!-- Projects Section -->
          <div class="overflow-auto max-h-[calc(100vh-200px)] w-full">               
-               {projectsData.map((item, index) =>
+               {projectsData.map((item, index: number) =>
             (
                   <div id={index.toString()} class="flex justify-between items-center my-2 text-base">
                     <a href={item.link} class="no-underline">

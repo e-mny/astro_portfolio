@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { projectData } from "@/content/data";
 
-const allProjTitles = projectData.map((project) => project.title);
+const allProjTitles: string[] = projectData.map((project) => project.title);
 
 interface ScrollAreaDemoProps {
   addClass?: string;

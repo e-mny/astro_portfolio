@@ -1,7 +1,5 @@
 ---
 import TechStackCarousel from "./TechStackCarousel";
-import { shuffle } from "d3";
-
 
 const imageFiles = await Astro.glob("../../../src/assets/tech_icons/*.svg");
 let imageArr = imageFiles.map((image) => {

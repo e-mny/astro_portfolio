@@ -1,20 +1,9 @@
 import AutoScroll from "embla-carousel-auto-scroll";
 import Autoplay from "embla-carousel-autoplay";
 
-import { Card, CardContent } from "../ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import PhotosCarouselItem from "./PhotosCarouselItem";
 
-// const IconPath = {
-//   "Python": "src/assets/icons/python.svg",
-//   "JavaScript": "src/assets/icons/javascript.svg",
-//   "TypeScript": "src/assets/icons/typescript.svg",
-//   "HTML": "src/assets/icons/html.svg",
-//   "CSS": "src/assets/icons/css.svg",
-//   "React": "src/assets/icons/react.svg",
-//   "Go": "src/assets/icons/golang.svg",
-//   "PyTorch": "src/assets/icons/pytorch.svg",
-// };
 
 interface ImageProps {
   default?: {

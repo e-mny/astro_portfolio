@@ -1,4 +1,3 @@
-import { Image } from "astro:assets";
 import { Card, CardContent } from "../ui/card";
 import { CarouselItem } from "../ui/carousel";
 

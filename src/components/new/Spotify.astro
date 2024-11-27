@@ -37,10 +37,10 @@ let {url: displayAlbumImageURL, height: displayAlbumImageHeight, width: displayA
         
         <!-- Playlist Section -->
          <div class="flex-grow overflow-auto max-h-[calc(100vh-200px)] w-full">               
-               {playlist.map((item, index) =>
+               {playlist.map((item, index: number) =>
             index < numSongsDisplayed ? 
             (
-              <div id={index} class={`flex justify-between items-center my-2 ${index === 0 ? "text-lg text-nowrap" : "text-xs"}`}>
+              <div id={index.toString()} class={`flex justify-between items-center my-2 ${index === 0 ? "text-lg text-nowrap" : "text-xs"}`}>
                 <a href={item.preview_url} class="no-underline pr-1 align-middle flex items-center h-full" aria-label={`Preview ${item.name}`}>
                       {index === 0 
                       ? 
